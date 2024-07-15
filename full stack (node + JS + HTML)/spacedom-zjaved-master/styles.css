@@ -1,0 +1,151 @@
+/*
+  Name: Zohaib Javed
+  Date: Saturday, July 2nd
+  Section: CSE 154 AA
+  This is the main css style sheet for the space.html page. The styles in this
+  section were chosen to reflect a space themed website. This stylesheet sets a
+  general style for the entire page, exlcuding the creative section with some
+  style exceptions.
+*/
+body {
+  background-image: url("img/background.png");
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+header, #intro > section, section > article, #jokes > article > section {
+  display: flex;
+}
+
+header, section > article, #jokes > article > section {
+  align-items: center;
+}
+
+header, #jokes > article > section {
+  flex-direction: column;
+}
+
+header, #jokes > h2, #jokes > p, #jokes b, #jokes strong:first-of-type {
+  color: #e0dbd7;
+}
+
+footer, #intro, #facts {
+  background-color: #e0dbd7;
+}
+
+header {
+  height: 100vh;
+  justify-content: center;
+}
+
+body > header > h1 {
+  font-family: 'Coda Caption', sans-serif;
+  text-transform: uppercase;
+  font-size: 120px;
+  margin-bottom: 0px;
+  text-shadow: 20px 15px 20px #551755;
+}
+
+h1 + blockquote {
+  margin-top: 0px;
+  font-size: 22px;
+}
+
+footer {
+  width: 100%;
+}
+
+footer > p, #jokes > article > section {
+  padding: 20px;
+}
+
+footer > p, section > h2, #jokes > p {
+  text-align: center;
+}
+
+#intro, #facts, #jokes {
+  width: 80%;
+  margin-bottom: 20px;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+section > h2 {
+  font-size: 35px;
+  text-decoration: underline;
+}
+
+#intro, #facts {
+  border-top: 15px solid #551755;
+  border-bottom: 15px solid #551755;
+  padding: 30px;
+}
+
+#intro > section, #facts > ol > li {
+  font-size: 20px;
+}
+
+#intro > section > img {
+  width: 25vw;
+  height: 100%;
+  border-radius: 10%;
+  margin-right: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+#facts > p, #jokes article > section > p {
+  font-size: 24px;
+}
+
+a {
+  color: #FFA605;
+}
+
+a:visited {
+  color: #1B505F;
+}
+
+section > article {
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+#jokes > article > section {
+  margin: 15px;
+  height: 400px;
+  width: 300px;
+  background-color: #9B590D;
+  opacity: 80%;
+}
+
+#jokes > article > section > img {
+  height: 150px;
+  width: 150px;
+}
+
+section > hr {
+  width: 60%;
+}
+
+#jokes article > section > p {
+  align-self: flex-start;
+}
+
+#jokes strong:first-of-type {
+  font-size: 28px;
+}
+
+#jokes strong {
+  font-weight: normal;
+}
+
+.answer {
+  opacity: 0;
+}
+
+article section:hover strong {
+  opacity: 1;
+}

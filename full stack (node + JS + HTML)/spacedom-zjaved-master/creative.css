@@ -1,0 +1,73 @@
+/*
+  Name: Zohaib Javed
+  Date: Saturday, July 2nd
+  Section: CSE 154 AA
+  This is the secondary stylesheet that accompanies the main styles.css file used
+  to style the space.html page. This css file controls the creative style within
+  the creative section which contains facts about mars and list of Mars Rovers.
+*/
+#creative, article, div {
+  display: flex;
+}
+
+#creative {
+  background-image: url("img/spacezoom.gif");
+  background-repeat: no-repeat;
+  flex-wrap: nowrap;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-bottom: 5%;
+  height: 600px;
+  padding: 20px;
+  border-style: dashed;
+  border-width: 5px;
+  border-color: antiquewhite;
+  color: aquamarine;
+}
+
+#creative article, div {
+  flex-direction: column;
+}
+
+#creative article, aside, #gifcite {
+  padding: 30px;
+  margin: 10px;
+}
+
+#creative article {
+  background-color: rgba(45, 49, 52, 0.714);
+  max-width: 30%;
+}
+
+#creative > article h3, p, ol {
+  margin: 0px;
+  width: fit-content;
+  height: fit-content;
+}
+
+#creative h3 {
+  font-size: 30px;
+  font-weight: 300;
+}
+
+#creative hr {
+  font-weight: 400;
+  width: 30%;
+}
+
+#creative div, div aside {
+  height: 100%;
+}
+
+#creative div aside, #gifcite {
+  width: 90%;
+  background-color: rgba(45, 49, 52, 0.5);
+}
+
+#gifcite {
+  height: 10%;
+}
+
+#creative ol {
+  list-style-type: upper-roman;
+}
