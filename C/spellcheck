@@ -1,0 +1,39 @@
+#!/bin/bash
+if [ $# -eq 0 ]
+then 
+	echo "Error: Provide at at least 1 argument Usage spellcheck filename" 1>&2
+	exit 1
+else
+	   for i in "$@"
+           do
+                if [ -f "$i" ] 
+
+                then
+		    newfilename="${i}.spelling"
+		    if [ ! -f "${i}.spelling" ]
+	    	    then
+		    	echo "creating ${newfilename} file"
+		    	touch "$newfilename"		    
+		    else
+		    	echo "replacing ${newfilename} file"
+		    	rm "$newfilename"
+			touch "$newfilename"
+		    fi
+
+                    while read -ra line; 
+		    do
+   			  for word in "${line[@]}";
+			  do
+			      if ! grep -iqw  "$word" /usr/share/dict/words; then
+    				echo "$word" >> "$newfilename"
+			      fi
+			  done;
+		    done < "$i"
+
+		    echo "processed ${i}"
+
+                else
+                        echo "error: ${i} does not exist - skipping" 1>&2
+                fi
+           done
+fi

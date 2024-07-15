@@ -1,0 +1,41 @@
+#!/bin/bash
+if [ $# -ge 2 ]
+then
+   if [ -f "$2" ]
+   then
+           if [ -f "$1" ]
+           then
+                echo "WARNING: The output file already exists, overwriting it now" 1>&2
+           	rm "$1"
+	   fi
+
+	   index=1
+	   while read -r line; 
+	   do 
+		echo "Performing wordcount measurement on $line..."
+
+		indexstr="$index "    
+		measurepageoutput=$(./measurepage "$line")
+		output="$indexstr$measurepageoutput"
+		#echo "$measurepageoutput"
+		if [ "$measurepageoutput" -ge 1 ]
+		then
+			echo "...successful"
+			index=$((index+1))
+	                echo "$output" >> "$1"
+		else
+			echo "...failure"
+		fi
+		
+	   done < "$2"
+	   exit 0
+
+   else
+           echo "Error: The HTML file provided does not exist" 1>&2
+           exit 1
+   fi
+else
+   echo "ERROR: Please at provide at least 2 arguments" 1>&2
+   exit 1
+fi
+

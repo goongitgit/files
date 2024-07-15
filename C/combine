@@ -1,0 +1,17 @@
+#!/bin/bash
+if [ $# -ge 2 ]
+then
+   if [ -f "$1" ] || [ -d "$1" ]
+   then
+	   echo "Error: Output file should not exist" 1>&2
+   	   exit 1 
+   else
+	   for i in "${@:2}"
+	   do
+			cat "$i" &>> "$1"
+	   done
+   fi
+else
+   echo "Usage: combine outputfilename [inputfilename ...]" 1>&2
+   exit 1
+fi

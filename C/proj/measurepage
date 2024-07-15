@@ -1,0 +1,17 @@
+#!/bin/bash
+if [ $# -ge 1 ]
+then
+   tmpfilename=$(mktemp)
+   if wget -q -O "$tmpfilename" "$1" > /dev/null;
+   then
+	   ./wordcount -w "$tmpfilename"
+	   rm -f "$tmpfilename"
+   else
+	   echo "0"
+	   rm -f "$tmpfilename"
+   fi
+else
+   echo "Usage: measurepage [url]" 1>&2
+   exit 1
+fi
+

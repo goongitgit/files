@@ -1,0 +1,21 @@
+#!/bin/bash
+if [ $# -ge 2 ]
+then
+   if [ -f "$2" ]
+   then
+	   if [ -f "$1" ]
+           then 
+           	echo "WARNING: The output file already exists, overwriting it now" 1>&2
+	   fi
+	   grep -P -i  -o '/lectures/ccode/[a-zA-Z0-9_!@#$&()\\-`.+,/\"]+\.c' "$2" > "$1"
+           sed -i 's/^/https:\/\/courses.cs.washington.edu\/courses\/cse374\/22au/g' "$1"
+           exit 0
+   else
+           echo "Error: The HTML input file provided does not exist" 1>&2
+	   exit 1
+   fi
+else
+   echo "Usage: geturls [output file name] [existing input html file]" 1>&2
+   exit 1
+fi
+
